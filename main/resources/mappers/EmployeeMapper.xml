@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.solvd.taxiService.Dao.IEmployeeeDao">
+	<resultMap id="employeeResult"
+		type="employee">
+		<id column="id" property="id" />
+		<result column="first_name" property="first_name" />
+		<result column="last_name" property="last_name" />
+		<result column="phone_number" property="phone_number" />
+	</resultMap>
+
+	<select id="getEntityById"
+		resultMap="employeeeResult">
+		SELECT id, first_name, last_name, phone_number FROM
+		employee WHERE id = #{id}
+	</select>
+
+	<select id="getEmployeeByFirstName"
+		resultMap="employeeResultMap">
+		SELECT * FROM employee
+		WHERE first_name = #{first_name}
+	</select>
+
+
+	<select id="getAllEntities"
+		resultMap="employeeResult">
+		SELECT id, first_name, last_name, phone_number FROM
+		employee
+	</select>
+
+	<insert id="createEntity">
+		INSERT INTO employee(first_name, last_name,
+		phone_number)
+		VALUES(#{first_name}, #{last_name}, #{phone_number})
+	</insert>
+
+	<update id="updateEntity">
+		UPDATE employee SET first_name =
+		#{first_name} WHERE id = #{id}
+	</update>
+
+	<delete id="removeEntity">
+		DELETE FROM employee WHERE id = #{id}
+	</delete>
+</mapper>

@@ -1,0 +1,8 @@
+{
+	"Payment": {
+		"id": 1,
+		"creditCardNumber": "09809809",
+		"securityCode": "023",
+		"expirationDate": "01-02-2028"
+	}
+}

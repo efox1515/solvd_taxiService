@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <Payment>
+    <id>{id}</id>
+    <CardNumber>12345678910</CardNumber>
+    <ExpirationDate>2025-01-01</ExpirationDate>
+    <SecurityCode>123</SecurityCode>
+</Payment>

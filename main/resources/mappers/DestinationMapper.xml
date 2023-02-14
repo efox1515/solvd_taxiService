@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.taxiService.Dao.IDestinationDao">
+
+	<resultMap id="DestinationResultMap" type="Destination">
+		<id column="id" property="id" />
+		<result column="address" property="Address" />
+	</resultMap>
+
+	<select id="getAllDestinations" resultMap="DestinationResultMap">
+		SELECT * FROM destination
+	</select>
+
+	<select id="getDestinationsByByParameter" resultMap="DestinationResultMap">
+		SELECT * FROM destination
+		WHERE ${parameter} = #{value}
+	</select>
+
+	<select id="getEntityById" resultMap="DestinationResultMap">
+		SELECT * FROM destination
+		WHERE id = #{id}
+	</select>
+
+	<update id="updateEntity">
+		UPDATE destination
+		SET DestinationNumber = #{Address}
+		WHERE id = #{id}
+	</update>
+
+	<insert id="createEntity">
+		INSERT INTO Destination (Address)
+		VALUES (#{Address})
+	</insert>
+
+	<delete id="removeEntity">
+		DELETE FROM destination
+		WHERE id = #{id}
+	</delete>
+
+</mapper>
