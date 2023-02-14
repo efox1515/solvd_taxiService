@@ -1,0 +1,9 @@
+{
+	"Employee": {
+		"id": "1",
+		"firstName": "John",
+		"lastName": "Doe",
+		"phoneNumber": "(516)-555-02020",
+		"role": "Driver"
+		}
+}

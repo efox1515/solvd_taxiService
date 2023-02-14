@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.taxiService.dao.IPassengerDao">
+
+	<resultMap id="passengerResultMap"
+		type="Passenger">
+		<id column="id" property="id" />
+		<result column="first_name" property="first_name" />
+		<result column="last_name" property="last_name" />
+	</resultMap>
+
+	<select id="getEntityById"
+		resultMap="passengerResultMap">
+		SELECT * FROM passenger WHERE id = #{id}
+	</select>
+
+	<select id="getAllEntities"
+		resultMap="passengerResultMap">
+		SELECT * FROM passenger
+	</select>
+
+	<select id="getPassengerByPassengerId"
+		resultMap="passengerResultMap">
+		SELECT * FROM passenger
+		WHERE passenger_id = #{passengerId}
+	</select>
+
+	<insert id="createEntity">
+		INSERT INTO passenger(first_name, last_name,
+		passenger_id)
+		VALUES(#{first_name}, #{last_name}, #{passengerId})
+	</insert>
+
+	<update id="updateEntity">
+		UPDATE passenger
+		SET last_name =
+		#{last_name},
+		first_name = #{first_name}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="removeEntity">
+		DELETE FROM
+		passenger WHERE id = #{id}
+	</delete>
+</mapper>
